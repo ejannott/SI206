@@ -9,6 +9,12 @@
 # Deliverables:
 # 1) Print the orginal text (150 tokens)
 # 1) Print the new text
+
+import nltk
+from nltk.book import *
+import math
+import random
+
 print("START*******")
 
 
