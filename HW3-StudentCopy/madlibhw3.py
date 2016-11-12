@@ -33,7 +33,21 @@ originalText = ' '.join(first150words)
 print (originalText)
 
 # Turn original text into tokens
-tokens = nltk.word_tokenize(originalText)
-print(tokens)
+tokens = nltk.word_tokenize(originalText) # makes a string a list of substrings - breaks sentences up
+tagged_tokens = nltk.pos_tag(tokens) # Tagged list of tokens
+
+tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","AV":"an adverb","JJ":"an adjective"}
+substitution_probabilities = {"NN":.15,"NNS":.1,"VB":.1,"AV":.1,"JJ":.1}
+
+final_words = []
+for (word, tag) in tagged_tokens:
+ 	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
+ 		final_words.append(spaced(word))
+ 	else:
+ 		new_word = input("Please enter %s:\n" % (tagmap[tag]))
+ 		final_words.append(spaced(new_word))
+
+print('\n- - - - - - - - - - - - - - NEW TEXT - - - - - - - - - - - - - -')
+print ("".join(final_words))
 
 print("\n\nEND*******")
