@@ -1,3 +1,7 @@
+# Ethan Jannott
+# ejannott
+# 22235024
+
 # Using text2 from the nltk book corpa, create your own version of the
 # MadLib program.  
 
@@ -15,7 +19,21 @@ from nltk.book import *
 import math
 import random
 
-print("START*******")
+def spaced(word):
+	if word in [",", ".", "?", "!", ":"]:
+		return word
+	else:
+		return " " + word
 
+print("START*******")
+print('- - - - - - - - - - - - - ORIGINAL TEXT - - - - - - - - - - - - -')
+first150words = text2[11:161]
+# Mend the words together into a 'paragraph' format
+originalText = ' '.join(first150words)
+print (originalText)
+
+# Turn original text into tokens
+tokens = nltk.word_tokenize(originalText)
+print(tokens)
 
 print("\n\nEND*******")
